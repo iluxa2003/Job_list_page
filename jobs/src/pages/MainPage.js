@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import jobsFetch from "../servises/jobsFetch";
 import "./MainPage.css";
+import SoloItem from "../components/mainPage/SoloItem";
 const MainPage = () => {
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
@@ -9,14 +10,16 @@ const MainPage = () => {
     });
   }, []);
   return (
-    <div className="main-page_wrapper">
-      <div>
-        {jobs.map((job) => {
-          return <div key={job.id}>{job.name}</div>;
-        })}
-      </div>
-      <div></div>
-    </div>
+    <main className="main-page">
+      <section className="main-page_wrapper">
+        <div>
+          {jobs.map((job) => {
+            return <SoloItem key={job.id} info={job} />;
+          })}
+        </div>
+        <div></div>
+      </section>
+    </main>
   );
 };
 export default MainPage;

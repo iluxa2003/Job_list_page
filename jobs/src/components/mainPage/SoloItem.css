@@ -1,0 +1,45 @@
+.solo-item__wrapper {
+  padding: 24px 16px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ffffff;
+  gap: 32px;
+  box-shadow: 2px 1px 7px rgba(0, 0, 0, 0.08),
+    0px 2px 1px -1px rgba(0, 0, 0, 0.04), 0px 1px 3px rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  margin-bottom: 8px;
+
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 0.23619px;
+  color: #878d9d;
+}
+.solo-item__right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.solo-item__top-text {
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
+  letter-spacing: -0.625px;
+  color: #3a4562;
+}
+.solo-item__left-side {
+  display: flex;
+}
+.solo-item__logo {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 0;
+  margin-right: 28px;
+}
