@@ -17,6 +17,7 @@
   line-height: 25px;
   letter-spacing: 0.23619px;
   color: #878d9d;
+  text-decoration: none;
 }
 .solo-item__right-side {
   display: flex;
