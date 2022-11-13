@@ -27,12 +27,16 @@ const SoloItem = (props) => {
     <Link to={"/details/" + id} className="solo-item__wrapper">
       <div>
         <figure className="solo-item__left-side">
-          <img src={logo} className="solo-item__logo" />
+          <img
+            src={logo}
+            alt="ooops, something went wrong"
+            className="solo-item__logo"
+          />
           <figcaption className="solo-item__figcaption">
             <div className="solo-item__top-text">{title}</div>
             <div>{name + " • " + address}</div>
             <div>
-              <img src={location} />
+              <img src={location} alt="ooops, something went wrong" />
               {" " + address}
             </div>
           </figcaption>
@@ -40,15 +44,19 @@ const SoloItem = (props) => {
       </div>
       <div className="solo-item__right-side">
         <div>
-          <img className="solo-item__left-side-image" src={firstSvg} />
+          <img
+            src={firstSvg}
+            alt="ooops, something went wrong"
+            className="solo-item__left-side-image"
+          />
         </div>
         <div className="solo-item__mobile-top">
           <div className="solo-item__mobile-stars">
-            <img src={star} />
-            <img src={star} />
-            <img src={star} />
-            <img src={star} />
-            <img src={star} />
+            <img src={star} alt="ooops, something went wrong" />
+            <img src={star} alt="ooops, something went wrong" />
+            <img src={star} alt="ooops, something went wrong" />
+            <img src={star} alt="ooops, something went wrong" />
+            <img src={star} alt="ooops, something went wrong" />
           </div>
           <div>
             {"Posted " +

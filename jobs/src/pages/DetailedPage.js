@@ -1,4 +1,5 @@
 import "./DetailedPage.css";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
 
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -8,6 +9,7 @@ import share from "../images/Share.svg";
 import ColoredCard from "../components/detailsPage/ColoredCard";
 import star from "../images/Star.png";
 const DetailedPage = () => {
+  const api_key = "AIzaSyBFgZytrYzr9pcYnrvNydFQ6wl84Fsy5fg";
   const { id } = useParams();
   const [info, setInfo] = useState([]);
   const [pictures, setPictures] = useState([]);
@@ -17,15 +19,24 @@ const DetailedPage = () => {
   const [posted, setPosted] = useState("");
   const [benefits, setBenefits] = useState([]);
   const [employmentType, setEmploymentType] = useState([]);
+  const [center, setCenter] = useState([]);
+  const [timeToMap, setTimeToMap] = useState(0);
   const hora = new Date(posted);
   const today = new Date();
+  const containerStyle = {
+    width: "350px",
+    height: "350px",
+  };
   useEffect(() => {
     jobsFetch().then((response) => {
-      response.map((item) => {
-        return item.id === id ? setInfo(item) : 0;
-      });
+      if (response !== String) {
+        response.map((item) => {
+          return item.id === id ? setInfo(item) : 0;
+        });
+      }
     });
   }, [id]);
+
   useEffect(() => {
     if (info.length !== 0) {
       setPictures(info.pictures);
@@ -35,6 +46,9 @@ const DetailedPage = () => {
       setPosted(info.updatedAt);
       setBenefits(info.benefits);
       setEmploymentType(info.employment_type);
+      const remake = { lat: info.location.lat, lng: info.location.long };
+      setCenter(remake);
+      setTimeToMap(1);
     }
   }, [info]);
   return (
@@ -44,13 +58,13 @@ const DetailedPage = () => {
           <div className="detailed-page__header-left">Job Details</div>
           <div className="detailed-page__header-right detailed-page__mobile-disapear">
             <figure className="detailed-page__header-figure">
-              <img src={bookmark} />
+              <img src={bookmark} alt="ooops, something went wrong" />
               <figcaption className="detailed-page__header-figcaption">
                 Save to my list
               </figcaption>
             </figure>
             <figure className="detailed-page__header-figure ">
-              <img src={share} />
+              <img src={share} alt="ooops, something went wrong" />
               <figcaption className="detailed-page__header-figcaption">
                 Share
               </figcaption>
@@ -60,13 +74,13 @@ const DetailedPage = () => {
         <main>
           <div className="detailed-page__mobile-header-addition">
             <figure className="detailed-page__header-figure">
-              <img src={star} />
+              <img src={star} alt="ooops, something went wrong" />
               <figcaption className="detailed-page__header-figcaption">
                 Save to my list
               </figcaption>
             </figure>
             <figure className="detailed-page__header-figure ">
-              <img src={share} />
+              <img src={share} alt="ooops, something went wrong" />
               <figcaption className="detailed-page__header-figcaption">
                 Share
               </figcaption>
@@ -143,14 +157,29 @@ const DetailedPage = () => {
                     src={image}
                     className="detailed-page__images"
                     key={Math.random()}
-                    alt=""
+                    alt="ooops, something went wrong"
                   />
                 );
               })}
             </div>
           </section>
         </main>
-        <footer></footer>
+        <footer>
+          <h2 className="detailed-page__underlined-text">Contacts</h2>
+          <div>
+            {timeToMap === 1 ? (
+              <LoadScript googleMapsApiKey={api_key}>
+                <GoogleMap
+                  mapContainerStyle={containerStyle}
+                  center={center}
+                  zoom={10}
+                ></GoogleMap>
+              </LoadScript>
+            ) : (
+              0
+            )}
+          </div>
+        </footer>
       </div>
     </div>
   );
