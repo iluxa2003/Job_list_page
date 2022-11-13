@@ -1,6 +1,25 @@
 .colored-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 220px;
   height: 50px;
-  text-align: center;
   border-radius: 8px;
+  font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.blue {
+  color: #55699e;
+  background: rgba(161, 177, 219, 0.317343);
+  border: 1px solid rgba(85, 105, 158, 0.3);
+}
+.yellow {
+  color: #988b49;
+  background: rgba(255, 207, 0, 0.15);
+  border: 1px solid #ffcf00;
 }
