@@ -1,10 +1,12 @@
 import "./DetailedPage.css";
+
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import jobsFetch from "../servises/jobsFetch";
 import bookmark from "../images/Bookmark.svg";
 import share from "../images/Share.svg";
 import ColoredCard from "../components/detailsPage/ColoredCard";
+import star from "../images/Star.png";
 const DetailedPage = () => {
   const { id } = useParams();
   const [info, setInfo] = useState([]);
@@ -40,19 +42,40 @@ const DetailedPage = () => {
       <div className="detailed-page__wrapper">
         <header className="detailed-page__header ">
           <div className="detailed-page__header-left">Job Details</div>
-          <div className="detailed-page__header-right">
+          <div className="detailed-page__header-right detailed-page__mobile-disapear">
             <figure className="detailed-page__header-figure">
               <img src={bookmark} />
-              <figcaption>Save to my list</figcaption>
+              <figcaption className="detailed-page__header-figcaption">
+                Save to my list
+              </figcaption>
             </figure>
-            <figure className="detailed-page__header-figure">
+            <figure className="detailed-page__header-figure ">
               <img src={share} />
-              <figcaption>Share</figcaption>
+              <figcaption className="detailed-page__header-figcaption">
+                Share
+              </figcaption>
             </figure>
           </div>
         </header>
         <main>
-          <button className="detailed-page__apply-button">APPLY NOW</button>
+          <div className="detailed-page__mobile-header-addition">
+            <figure className="detailed-page__header-figure">
+              <img src={star} />
+              <figcaption className="detailed-page__header-figcaption">
+                Save to my list
+              </figcaption>
+            </figure>
+            <figure className="detailed-page__header-figure ">
+              <img src={share} />
+              <figcaption className="detailed-page__header-figcaption">
+                Share
+              </figcaption>
+            </figure>
+          </div>
+
+          <button className="detailed-page__apply-button detailed-page__mobile-disapear">
+            APPLY NOW
+          </button>
           <section className="detailed-page__title">
             <h2>{title}</h2>
             <div>
@@ -68,14 +91,19 @@ const DetailedPage = () => {
           </section>
           <section className="detailed-page__main-info">
             <h3>Responsobilities</h3>
-            <div className="detailed-page__main-text">{description}</div>
+            <div className="detailed-page__main-text detailed-page__mobile-text">
+              {description}
+            </div>
           </section>
           <section className="detailed-page__main-info">
             <h3>Benefits</h3>
-            <ul>
+            <ul className="detailed-page__benefits">
               {benefits.map((benefit) => {
                 return (
-                  <li className="detailed-page__main-text" key={Math.random()}>
+                  <li
+                    className="detailed-page__main-text detailed-page__mobile-text"
+                    key={Math.random()}
+                  >
                     {benefit}
                   </li>
                 );

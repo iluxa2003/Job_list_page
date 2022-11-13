@@ -19,7 +19,7 @@
   position: absolute;
   content: "";
   left: 0;
-  bottom: 0;
+  top: 40px;
   background: #3a4562;
 
   mix-blend-mode: normal;
@@ -27,6 +27,7 @@
 }
 .detailed-page__wrapper {
   width: 1000px;
+  color: #3a4562;
 }
 .detailed-page {
   display: flex;
@@ -128,5 +129,39 @@
 .detailed-page__images-wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+}
+.detailed-page__header-figcaption {
+  display: flex;
+  align-items: center;
+}
+.detailed-page__benefits {
+  list-style: square;
+}
+.detailed-page__mobile-header-addition {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .detailed-page__mobile-disapear {
+    display: none;
+  }
+  .detailed-page__wrapper {
+    padding: 15px;
+    width: auto;
+  }
+  .detailed-page__images-wrapper {
+    justify-content: center;
+  }
+  .detailed-page__mobile-header-addition {
+    display: flex;
+  }
+  .detailed-page__header {
+    margin-bottom: 20px;
+  }
+  .detailed-page__mobile-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.5625px;
+    color: rgba(56, 65, 93, 0.82);
+  }
 }
