@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import firstSvg from "../../images/Bookmark.svg";
 import location from "../../images/Combined_Shape.svg";
+import star from "../../images/Star_Copy.svg";
 import "./SoloItem.css";
 const SoloItem = (props) => {
   const [title, setTitle] = useState("");
@@ -27,7 +28,7 @@ const SoloItem = (props) => {
       <div>
         <figure className="solo-item__left-side">
           <img src={logo} className="solo-item__logo" />
-          <figcaption>
+          <figcaption className="solo-item__figcaption">
             <div className="solo-item__top-text">{title}</div>
             <div>{name + " • " + address}</div>
             <div>
@@ -39,12 +40,21 @@ const SoloItem = (props) => {
       </div>
       <div className="solo-item__right-side">
         <div>
-          <img src={firstSvg} />
+          <img className="solo-item__left-side-image" src={firstSvg} />
         </div>
-        <div>
-          {"Posted " +
-            (today.getFullYear() - hora.getFullYear()) +
-            " years ago"}
+        <div className="solo-item__mobile-top">
+          <div className="solo-item__mobile-stars">
+            <img src={star} />
+            <img src={star} />
+            <img src={star} />
+            <img src={star} />
+            <img src={star} />
+          </div>
+          <div>
+            {"Posted " +
+              (today.getFullYear() - hora.getFullYear()) +
+              " years ago"}
+          </div>
         </div>
       </div>
     </Link>

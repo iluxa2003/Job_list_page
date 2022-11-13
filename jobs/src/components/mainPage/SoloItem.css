@@ -44,3 +44,43 @@
   border: 0;
   margin-right: 28px;
 }
+
+@media (max-width: 400px) {
+  .solo-item__logo {
+    position: absolute;
+    top: 28%;
+    left: 5%;
+    width: 66px;
+    height: 66px;
+    border-radius: 50%;
+    border: 0;
+    margin-right: 19px;
+  }
+  .solo-item__left-side-image {
+    display: none;
+  }
+  .solo-item__wrapper {
+    position: relative;
+    flex-direction: column-reverse;
+    gap: 0px;
+    background-color: #eff0f5;
+    padding: 20px 16px;
+  }
+  .solo-item__figcaption {
+    margin-left: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .solo-item__top-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .solo-item__mobile-top {
+    width: 280px;
+    display: flex;
+
+    justify-content: space-between;
+  }
+}
