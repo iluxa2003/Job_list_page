@@ -140,6 +140,18 @@
 .detailed-page__mobile-header-addition {
   display: none;
 }
+.detailed-page__footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+  background-color: #2a3047;
+  border-radius: 8px;
+  width: 300px;
+  height: 160px;
+  color: #e7eaf0;
+  padding: 20px;
+}
 @media (max-width: 1000px) {
   .detailed-page__mobile-disapear {
     display: none;

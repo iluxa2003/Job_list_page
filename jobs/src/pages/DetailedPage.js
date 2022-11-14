@@ -1,6 +1,5 @@
 import "./DetailedPage.css";
-import { GoogleMap, LoadScript } from "@react-google-maps/api";
-
+import location from "../images/Combined_Shape.svg";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import jobsFetch from "../servises/jobsFetch";
@@ -9,7 +8,6 @@ import share from "../images/Share.svg";
 import ColoredCard from "../components/detailsPage/ColoredCard";
 import star from "../images/Star.png";
 const DetailedPage = () => {
-  const api_key = "AIzaSyBFgZytrYzr9pcYnrvNydFQ6wl84Fsy5fg";
   const { id } = useParams();
   const [info, setInfo] = useState([]);
   const [pictures, setPictures] = useState([]);
@@ -19,14 +17,14 @@ const DetailedPage = () => {
   const [posted, setPosted] = useState("");
   const [benefits, setBenefits] = useState([]);
   const [employmentType, setEmploymentType] = useState([]);
-  const [center, setCenter] = useState([]);
-  const [timeToMap, setTimeToMap] = useState(0);
+  const [address, setAddress] = useState("");
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
+  const [email, setEmail] = useState("");
+
   const hora = new Date(posted);
   const today = new Date();
-  const containerStyle = {
-    width: "350px",
-    height: "350px",
-  };
+
   useEffect(() => {
     jobsFetch().then((response) => {
       if (response !== String) {
@@ -46,9 +44,10 @@ const DetailedPage = () => {
       setPosted(info.updatedAt);
       setBenefits(info.benefits);
       setEmploymentType(info.employment_type);
-      const remake = { lat: info.location.lat, lng: info.location.long };
-      setCenter(remake);
-      setTimeToMap(1);
+      setAddress(info.address);
+      setName(info.name);
+      setTel(info.phone);
+      setEmail(info.email);
     }
   }, [info]);
   return (
@@ -166,18 +165,14 @@ const DetailedPage = () => {
         </main>
         <footer>
           <h2 className="detailed-page__underlined-text">Contacts</h2>
-          <div>
-            {timeToMap === 1 ? (
-              <LoadScript googleMapsApiKey={api_key}>
-                <GoogleMap
-                  mapContainerStyle={containerStyle}
-                  center={center}
-                  zoom={10}
-                ></GoogleMap>
-              </LoadScript>
-            ) : (
-              0
-            )}
+          <div className="detailed-page__footer">
+            <div>{name}</div>
+            <div>
+              <img src={location} alt="ooops, something went wrong" />
+              {" " + address}
+            </div>
+            <div>{tel}</div>
+            <div>{email}</div>
           </div>
         </footer>
       </div>
